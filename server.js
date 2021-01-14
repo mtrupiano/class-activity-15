@@ -18,7 +18,7 @@ const waitList = [];
 
 app.get("/", function (req, res) {
     // display home HTML
-    res.sendFile(path.join(__dirname, "index.html"));
+    res.sendFile(path.join(__dirname, "home.html"));
 });
 
 app.get("/tables", function(req, res) {
