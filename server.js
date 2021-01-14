@@ -51,7 +51,13 @@ app.post("/reservations", function(req, res) {
     let newRes = req.body;
     // console.log(newRes);
 
-    reservations.push(newRes);
+    if (reservations.length < 5) {
+        reservations.push(newRes);
+        res.status(200).send("Reservation successfully added!");
+    } else {
+        res.status(200).send("Reservations full, added to wait list!");
+        waitList.push(newRes);
+    }
     res.json(newRes);
 });
 
