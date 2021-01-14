@@ -1,4 +1,6 @@
 const express = require("express");
+const path = require("path");
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -7,11 +9,21 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const reservations = [];
+const reservations = [{
+    "name": "Mark",
+    "time": "2:30"
+}];
+
+const waitList = [];
 
 app.get("/", function (req, res) {
     // display home HTML
     res.sendFile(path.join(__dirname, "index.html"));
+});
+
+app.get("/tables", function(req, res) {
+    // display tables HTML
+    res.sendFile(path.join(__dirname, "tables.html"));
 });
 
 app.get("/reserve", function (req, res) {
