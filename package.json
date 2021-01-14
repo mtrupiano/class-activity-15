@@ -11,5 +11,15 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mtrupiano/class-activity-15.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/mtrupiano/class-activity-15/issues"
+  },
+  "homepage": "https://github.com/mtrupiano/class-activity-15#readme"
 }
