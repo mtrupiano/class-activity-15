@@ -14,7 +14,10 @@ const reservations = [{
     "time": "2:30"
 }];
 
-const waitList = [];
+const waitList = [{
+    "name": "Nolan",
+    "time": "???"
+}];
 
 app.get("/", function (req, res) {
     // display home HTML
@@ -34,6 +37,10 @@ app.get("/reserve", function (req, res) {
 
 app.get("/reservations", function (req, res) {
     return res.json(reservations);
+});
+
+app.get("/waitlist", function (req, res) {
+    return res.json(waitList);
 });
 
 app.post("/reservations", function(req, res) {

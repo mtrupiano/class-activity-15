@@ -69,7 +69,14 @@
     </div>
 
     <script type="text/javascript">
-    
+        
+        $.get("/reservations", function(data) {
+            console.log(data);
+        });
+
+        $.get("/waitlist", function(data) {
+            console.log(data);
+        });
     </script>
 </body>
 </html>
