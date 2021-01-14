@@ -53,12 +53,12 @@ app.post("/reservations", function(req, res) {
 
     if (reservations.length < 5) {
         reservations.push(newRes);
-        res.status(200).send("Reservation successfully added!");
+        return res.json(true);
     } else {
-        res.status(200).send("Reservations full, added to wait list!");
         waitList.push(newRes);
+        return res.json(false);
     }
-    res.json(newRes);
+    
 });
 
 app.listen(PORT, function () {

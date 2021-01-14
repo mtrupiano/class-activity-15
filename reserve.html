@@ -74,7 +74,11 @@
             }
 
             $.post("/reservations", newRes).then(function(data) {
-                console.log("reserve.html: ", data);
+                if (data) {
+                    alert("Added to reservations list");
+                } else {
+                    alert("Added to wait list");
+                }
             });
 
         });
