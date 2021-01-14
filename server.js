@@ -9,15 +9,10 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const reservations = [{
-    "name": "Mark",
-    "time": "2:30"
-}];
+const reservations = [];
 
-const waitList = [{
-    "name": "Nolan",
-    "time": "???"
-}];
+const waitList = [];
+
 
 app.get("/", function (req, res) {
     // display home HTML

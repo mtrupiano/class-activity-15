@@ -34,14 +34,6 @@
                         </div>
                         <div class="card-body">
                             <ul id="tableList" class="list-group">
-                                <li class= "list-group-item mt-4">
-                                    <h2>Table #1</h2>
-                                    <hr>
-                                    <h2>ID: test</h2>
-                                    <h2>Name: test</h2>
-                                    <h2>Email: test</h2>
-                                    <h2>Phone: test</h2>
-                                </li>
                             </ul>
                         </div>
                     </div>
@@ -51,15 +43,8 @@
                             <h4>Waiting List</h4>
                         </div>
                         <div class="card-body">
-                            <ul id="tableList" class="list-group">
-                                <li class= "list-group-item mt-4">
-                                    <h2>Table #1</h2>
-                                    <hr>
-                                    <h2>ID: test</h2>
-                                    <h2>Name: test</h2>
-                                    <h2>Email: test</h2>
-                                    <h2>Phone: test</h2>
-                                </li>
+                            <ul id="waitList" class="list-group">
+         
                             </ul>
                         </div>
                     </div>
@@ -72,11 +57,33 @@
         
         $.get("/reservations", function(data) {
             console.log(data);
+            createCard("tableList", {data});
         });
 
         $.get("/waitlist", function(data) {
             console.log(data);
+            createCard("waitList", {data});
         });
+
+        function createCard(list, {data}){
+            console.log(data)
+            console.log(`#${list}`)
+            for (let i = 0; i < data.length; i++) {
+                const tableNum = i + 1;
+                
+                let li = $("<li>", {class: "list-group-item mt-4", "id": `${list}${i}`});
+                let table = $(`<h2>Table #${tableNum}</h2>`)
+                let br = $("<br>")
+                let id = $(`<h2>ID: ${data[i].id} </h2>`)
+                let name = $(`<h2>Name: ${data[i].name} </h2>`)
+                let email = $(`<h2>Email: ${data[i].email} </h2>`)
+                let number = $(`<h2>Phone: ${data[i].number} </h2>`)
+                $(`#${list}`).append(li)
+                $(`#${list}${i}`).append(table, br, id, name, email, number)    
+            }
+        }
+
+        
     </script>
 </body>
 </html>
